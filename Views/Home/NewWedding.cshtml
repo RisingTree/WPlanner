@@ -1,0 +1,47 @@
+@model Wedding
+<div class="row">
+    <div class="col">
+        <h5>Plan Your Wedding</h5>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <a href="/Logout" class="btn btn-dark">Log Out</a>
+        </div>
+        <div class="col">
+            <a href="/Dashboard" class="btn btn-dark">DashBoard</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+            <form asp-action="ProcessWedding" asp-controller="Home" method ="post">
+            <div class="form-row">
+                <div class ='col'>
+                    <span asp-validation-for ="Bride"></span>
+                    <label asp-for="Bride">Bride</label>
+                    <input asp-for="Bride" class="form-control" placeholder = "Ex.John Doe">
+                </div>
+                <div class="col">
+                    <span asp-validation-for ="Groom"></span>
+                    <label asp-for="Groom">Groom</label>
+                    <input asp-for="Groom" class="form-control" placeholder="Ex.Mary Sue">
+                </div>
+            </div>
+            <br></br>
+            <div class="form-row">
+                <div class ='col'>
+                    <span asp-validation-for ="Date"></span> 
+                    <label asp-for="Date">Date</label>
+                    <input asp-for="Date" class="form-control">
+                </div>
+                <div class="col">
+                    <span asp-validation-for ="Address"></span>
+                    <label asp-for="Address">Address</label>
+                    <input asp-for="Address" class="form-control" placeholder ="Ex .1234 St NE Place">
+                </div>
+            </div>
+            <br></br>
+            <div class="form-group">
+                <input type="Submit"  class = "btn btn-dark" value ="Create A Wedding!">
+            </div>
+            </form>
+</div>

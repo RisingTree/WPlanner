@@ -1,0 +1,62 @@
+@model List<Wedding>
+<div class="row">
+    <div class="col">
+        <h2>Welcome to the Wedding Planner</h2>
+    </div>
+    <div class='col'>
+        <a href="/Logout" class="btn btn-dark">Log Out</a>
+    </div>
+</div>
+<div class = "container-fluid">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Wedding</th>
+                <th scope="col">Date</th>
+                <th scope="col">Guest</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @{ 
+                    foreach( var wedding in @Model)
+                    {
+                        <td><a href="/@wedding.WeddingId">@wedding.Bride & @wedding.Groom</a></td>
+                        <td>@wedding.Date</td>
+                        <td>@wedding.InAttendance.Count</td>
+                        <td>
+                        @{
+                            if(@wedding.UserId == @ViewBag.User.UserId)
+                            {
+                                <a href = "/Delete/@wedding.WeddingId">Delete</a>
+                            }
+                            else
+                            {
+                                bool attending = false;
+                                foreach( var guest in @wedding.InAttendance)
+                                {
+                                    if(guest.UserId == @ViewBag.User.UserId)
+                                    {
+                                        attending = true;
+                                    }
+                                }
+                                if(!attending)
+                                {
+                                    <a href="/RSVP/@wedding.WeddingId">RSVP</a>
+                                }
+                                else
+                                {
+                                    <a href="/RSVP/@wedding.WeddingId">Un-RSVP</a>
+                                }
+                            }
+                        }
+                        </td>
+                    }
+                }
+                
+            </tr>
+        </tbody>     
+    </table>
+    <a href="/NewWedding" class ="btn btn-dark">New Wedding</a>
+</div>

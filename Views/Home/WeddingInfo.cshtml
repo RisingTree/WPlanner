@@ -1,0 +1,27 @@
+@model Wedding
+<div class="row">
+    <div class="col">
+        <h3>The Wedding of @Model.Bride & @Model.Groom</h3>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <a href="/Logout" class="btn btn-dark">Log Out</a>
+        </div>
+        <div class="col">
+            <a href="/Dashboard" class="btn btn-dark">DashBoard</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">@Model.Date</p>
+            <p class='card-text'>Guests Attending</p>
+            <ul class='list-group list-group-flush'>
+                @{foreach(var Guest in @Model.InAttendance)     
+                    {<li class="list-group-item">@Guest.User.FirstName @Guest.User.LastName</li>}
+                }
+            </ul>
+        </div>
+    </div>
+</div>

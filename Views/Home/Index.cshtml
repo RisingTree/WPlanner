@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model LogRegWrapperModel
+<div class="row">
+    <div class='col'>
+        <h2>Register to start planning your next wedding!</h2>
+    </div>
+    <div class="col">
+        <h2>Login to this Site</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <form asp-action="Register" asp-controller="Home" method ="post">
+                <div class="form-row">
+                    <div class='col'>
+                        <span asp-validation-for ="RegUser.FirstName"></span>
+                        <label asp-for="RegUser.FirstName">First Name</label>
+                        <input asp-for="RegUser.FirstName" class="form-control">
+                    </div>
+                    <div class="col">
+                        <span asp-validation-for ="RegUser.LastName"></span>
+                        <label asp-for="RegUser.LastName">Last Name</label>
+                        <input asp-for="RegUser.LastName" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class='col'>
+                        <span asp-validation-for ="RegUser.Email"></span> 
+                        <label asp-for="RegUser.Email">E-Mail</label>
+                        <input asp-for="RegUser.Email" class="form-control">
+                    </div>
+                    <div class="col">
+                        <span asp-validation-for ="RegUser.Password"></span>
+                        <label asp-for="RegUser.Password">Password</label>
+                        <input asp-for="RegUser.Password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class='col'>
+                        <span asp-validation-for="RegUser.Confirm"></span>
+                        <label asp-for= "RegUser.Confirm">Confirm Password</label>
+                        <input asp-for="RegUser.Confirm" class="form-control">
+                    </div>
+                </div>
+                <br></br>
+                <div class="form-row">
+                    <div class='col'> 
+                        <input type="Submit"  class ="btn btn-dark" value ="Sign up">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form asp-action="Login" asp-controller="Home" method ="post">
+                <div class="form-row">
+                    <div class='col'>
+                        <span asp-validation-for ="LogUser.LoginEmail"></span> 
+                        <label asp-for="LogUser.LoginEmail">E-Mail</label>
+                        <input asp-for="LogUser.LoginEmail" class="form-control">
+                    </div>
+                    <div class="col">
+                        <span asp-validation-for ="LogUser.LoginPassword"></span>
+                        <label asp-for="LogUser.LoginPassword">Password</label>
+                        <input asp-for="LogUser.LoginPassword" class="form-control">
+                    </div>
+                </div>
+                <br></br>
+                <div class='form-row'>
+                    <div class="col">
+                        <input type="submit"  class ="btn btn-dark" value="Sign in ">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
