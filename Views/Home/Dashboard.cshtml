@@ -18,10 +18,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
                 @{ 
                     foreach( var wedding in @Model)
                     {
+                    <tr>
                         <td><a href="/@wedding.WeddingId">@wedding.Bride & @wedding.Groom</a></td>
                         <td>@wedding.Date</td>
                         <td>@wedding.InAttendance.Count</td>
@@ -52,10 +52,10 @@
                             }
                         }
                         </td>
+                    </tr>
                     }
                 }
                 
-            </tr>
         </tbody>     
     </table>
     <a href="/NewWedding" class ="btn btn-dark">New Wedding</a>
